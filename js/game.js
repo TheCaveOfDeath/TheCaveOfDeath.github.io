@@ -17,7 +17,6 @@ class Game {
         }
     }
     move(xy, value) {
-
         if (xy == "x") {
             if (checkPlaceFree(player.x + value, player.y - player.h / 3)) {
                 if (game.rightx <= 4000 && game.x >= 0 && player.x == 500) {

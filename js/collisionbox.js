@@ -17,15 +17,4 @@ class CollisionBox {
         }
 
     }
-
-    draw() {
-        if (this.type == "rect") {
-            stroke("blue");
-            noFill();
-            strokeWeight(5);
-            rectMode(CORNER);
-            rect(this.x - game.x, this.y - game.y, this.w, this.h);
-            rect(player.x, player.y, player.w, player.h);
-        }
-    }
 }

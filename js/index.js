@@ -3,7 +3,7 @@ var level = 0;
 var game, player;
 var collisionboxes = [];
 var prevframexy = {};
-
+var devmode = false;
 
 function preload() {
     imgs.aboveground = loadImage("img/aboveground.png");
@@ -25,6 +25,7 @@ function setup() {
     collisionboxes.push(new CollisionBox(2031, 1810, 65, 40, "rect")); // tree
     collisionboxes.push(new CollisionBox(2031, 2440, 65, 40, "rect")); // tree
     collisionboxes.push(new CollisionBox(2614, 2255, 65, 40, "rect")); // tree
+    collisionboxes.push(new CollisionBox(2290, 1357, 65, 40, "rect")); // tree
     collisionboxes.push(new CollisionBox(2645, 2120, 130, 40, "rect")); // rocks
     collisionboxes.push(new CollisionBox(2773, 1993, 60, 40, "rect")); // rock
 }
@@ -34,9 +35,10 @@ function draw() {
     game.getXY();
     imageMode(CORNER)
     image(imgs.aboveground, -1 * game.x, -1 * game.y, 4000, 2800);
-
-    for (var cb of collisionboxes) {
-        // cb.draw();
+    if (devmode) {
+        for (var cb of collisionboxes) {
+            cb.draw();
+        }
     }
     prevframexy = { "gx": game.x, "gy": game.y, "px": player.x, "py": player.y };
     player.movingUD = false;
@@ -58,9 +60,11 @@ function draw() {
         player.movingLR = true;
     }
     player.draw();
-    // strokeWeight(1);
-    // stroke("black");
-    // text("x: " + (mouseX + game.x) + ", y: " + (mouseY + game.y), mouseX, mouseY);
+    if (devmode) {
+        strokeWeight(1);
+        stroke("black");
+        text("x: " + (mouseX + game.x) + ", y: " + (mouseY + game.y), mouseX, mouseY);
+    }
 }
 
 var register = {};

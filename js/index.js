@@ -3,7 +3,7 @@ var level = 0;
 var game, player;
 var collisionboxes = [];
 var prevframexy = {};
-var devmode = false;
+var devmode = true;
 
 function preload() {
     imgs.aboveground = loadImage("img/aboveground.png");
@@ -63,7 +63,7 @@ function draw() {
     if (devmode) {
         strokeWeight(1);
         stroke("black");
-        text("x: " + (mouseX + game.x) + ", y: " + (mouseY + game.y), mouseX, mouseY);
+        text("x: " + (mouseX + game.x) + ", y: " + (mouseY + game.y) + " Frame Rate: " + Math.round(frameRate()), mouseX, mouseY);
     }
 }
 

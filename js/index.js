@@ -3,7 +3,7 @@ var level = 0;
 var game, player;
 var collisionboxes = [];
 var prevframexy = {};
-var devmode = true;
+var devmode = false;
 
 function preload() {
     imgs.aboveground = loadImage("img/aboveground.png");
